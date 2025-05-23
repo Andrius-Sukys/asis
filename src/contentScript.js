@@ -551,7 +551,7 @@
         patterns.defaults.found.push({
           type: 'Kenksmingos numatytosios parinktys',
           element: highlightElement,
-          description: `Kenksminga numatytoji parinktis${text ? ': "' + text + '"' : ''}`
+          description: `Kenksminga numatytoji parinktis${text ? ': „' + text + '“' : ''}`
         });
       });
 
@@ -570,7 +570,7 @@
               patterns.defaults.found.push({
                 type: 'Kenksmingos numatytosios parinktys',
                 element: highlightElement,
-                description: `Kenksminga numatytoji parinktis${text ? ': "' + text + '"' : ''}`
+                description: `Kenksminga numatytoji parinktis${text ? ': „' + text + '“' : ''}`
               });
             }
           });
@@ -611,7 +611,7 @@
           patterns.defaults.found.push({
             type: 'Kenksmingos numatytosios parinktys',
             element: checkedLabel.element,
-            description: `Kenksminga numatytoji parinktis: "${checkedLabel.text}"`
+            description: `Kenksminga numatytoji parinktis: „${checkedLabel.text}“`
           });
         }
       });
