@@ -306,17 +306,18 @@
 
         const overlayWidth = Math.max(element.clientWidth, 20);
         const overlayHeight = Math.max(element.clientHeight, 20);
-        
+
+        const highlightPadding = 10;
+
         const overlay = document.createElement('div');
         overlay.className = 'asis-highlight-overlay';
         overlay.dataset.elementId = elementId;
-        overlay.style.width = overlayWidth + 'px';
-        overlay.style.height = overlayHeight + 'px';
-        
-        const borderOffset = 4;
-        overlay.style.left = (rect.left + window.scrollX - borderOffset) + 'px';
-        overlay.style.top = (rect.top + window.scrollY - borderOffset) + 'px';
-        
+        overlay.style.width = (overlayWidth + highlightPadding * 2) + 'px';
+        overlay.style.height = (overlayHeight + highlightPadding * 2) + 'px';
+
+        overlay.style.left = (rect.left + window.scrollX - highlightPadding) + 'px';
+        overlay.style.top = (rect.top + window.scrollY - highlightPadding) + 'px';
+
         let animationFrameId = null;
         const updatePosition = () => {
           if (!element.isConnected) {
@@ -329,10 +330,11 @@
           if (newRect.width > 0 && newRect.height > 0) {
             const newWidth = Math.max(element.clientWidth, 20);
             const newHeight = Math.max(element.clientHeight, 20);
-            overlay.style.width = newWidth + 'px';
-            overlay.style.height = newHeight + 'px';
-            overlay.style.left = (newRect.left + window.scrollX - borderOffset) + 'px';
-            overlay.style.top = (newRect.top + window.scrollY - borderOffset) + 'px';
+
+            overlay.style.width = (newWidth + highlightPadding * 2) + 'px';
+            overlay.style.height = (newHeight + highlightPadding * 2) + 'px';
+            overlay.style.left = (newRect.left + window.scrollX - highlightPadding) + 'px';
+            overlay.style.top = (newRect.top + window.scrollY - highlightPadding) + 'px';
           }
           
           animationFrameId = requestAnimationFrame(updatePosition);
@@ -676,7 +678,7 @@
                 patterns.redirect.found.push({
                   type: type,
                   element: parentElement,
-                  description: `${description}: "${phrase}"`
+                  description: `${description}: „${phrase}“`
                 });
               }
             }
